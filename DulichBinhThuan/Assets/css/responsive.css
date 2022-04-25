@@ -48,11 +48,31 @@ Author:			Star Travel
 /* -----------------------------------------------------
 		Settings
    ----------------------------------------------------- */
+.site-center-aligned {
+	height: 100vh;
+	width: 100vw;
+}
+
+.videoCustom {
+	width: 100%;
+}
+
+@media(min-width:1200px) {
+	.videoCustom {
+		height: 35vw;
+	}
+}
+
+@media(max-width:1199px) {
+	.videoCustom {
+		height: 50vw;
+	}
+}
 
 @media(min-width:991px) and (max-width:1200px){
 	
-	.page-heading p{
-		width:75%;
+	.page-heading p {
+		width: 75%;
 	}
 }
 
@@ -122,7 +142,10 @@ Author:			Star Travel
 }
 
 @media(max-width:400px){
-	
+	.ytp-cued-thumbnail-overlay-image {
+		width: 360px;
+		height: auto;
+	}
 	.page-heading h2{
 		font-size:27px;
 	}
@@ -1762,8 +1785,9 @@ Author:			Star Travel
  
 /************** VIDEO-BANNER **************/
 
-@media(max-width:991px){  
 
+@media(max-width:991px){  
+	
 	#video-banner p{
 		font-size:19px;
 		width:90%;

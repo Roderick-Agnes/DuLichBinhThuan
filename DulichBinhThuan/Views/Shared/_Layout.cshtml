@@ -40,6 +40,9 @@
 
     <!--Jquery UI Stylesheet-->
     <link rel="stylesheet" href="~/Assetscss/jquery-ui.min.css">
+
+
+
 </head>
 <body id="main-homepage">
     @RenderBody();
@@ -162,7 +165,7 @@
 
                     </li>
                     <li><a href="javascript:void(0)" class="search-button"><span><i class="fa fa-search"></i></span></a></li>
-                    <li><a href="#"><i class="fa fa-user"></i></a></li>
+                    <li><a href="@Url.Action("Login", "User")"><i class="fa fa-user"></i></a></li>
                 </ul>
             </div><!-- end navbar collapse -->
         </div><!-- end container -->
@@ -179,7 +182,7 @@
 
                 <div class="list-group panel">
 
-                    <a href="@Url.Action("Index", "Home")" class="list-group-item active" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-home link-icon"></i></span>Home@*<span><i class="fa fa-chevron-down arrow"></i></span>*@</a>
+                    <a href="@Url.Action("Index", "Home")" class="list-group-item active" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-home link-icon"></i></span>Home@*<span><i class="fa fa-chevron-down arrow"></i></span>*@</a>
                     <div class="collapse sub-menu" id="home-links">
                         <a href="#" class="list-group-item active">Main Homepage</a>
                         <a href="flight-homepage.html" class="list-group-item">Flight Homepage</a>
@@ -190,7 +193,7 @@
                         <a href="landing-page.html" class="list-group-item">Landing Page</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="@Url.Action("Index", "Tours")" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-globe link-icon"></i></span>Tours</a>
+                    <a href="@Url.Action("Index", "Tours")" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-globe link-icon"></i></span>Tours</a>
                     <div class="collapse sub-menu" id="tours-links">
                         <a href="tour-homepage.html" class="list-group-item">Tour Homepage</a>
                         <a href="tour-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
@@ -201,7 +204,7 @@
                         <a href="tour-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="@Url.Action("Index", "Hotel")" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-hotel link-icon"></i></span>Hotels</a>
+                    <a href="@Url.Action("Index", "Hotel")" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-hotel link-icon"></i></span>Hotels</a>
                     <div class="collapse sub-menu" id="hotels-links">
                         <a href="hotel-homepage.html" class="list-group-item">Hotel Homepage</a>
                         <a href="hotel-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
@@ -212,7 +215,7 @@
                         <a href="hotel-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="#" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-building link-icon"></i></span>Resorts</a>
+                    <a href="#" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-building link-icon"></i></span>Resorts</a>
                     <div class="collapse sub-menu" id="hotels-links">
                         <a href="hotel-homepage.html" class="list-group-item">Hotel Homepage</a>
                         <a href="hotel-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
@@ -223,7 +226,7 @@
                         <a href="hotel-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="@Url.Action("Index", "Blog")" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-book link-icon"></i></span>Blogs</a>
+                    <a href="@Url.Action("Index", "Blog")" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-book link-icon"></i></span>Blogs</a>
                     <div class="collapse sub-menu" id="cruise-links">
                         <a href="cruise-homepage.html" class="list-group-item">Cruise Homepage</a>
                         <a href="cruise-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
@@ -234,7 +237,7 @@
                         <a href="cruise-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="@Url.Action("Index", "Contact")" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-phone-square link-icon"></i></span>Contact</a>
+                    <a href="@Url.Action("Index", "Contact")" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-phone-square link-icon"></i></span>Contact</a>
                     <div class="collapse sub-menu" id="cars-links">
                         <a href="car-homepage.html" class="list-group-item">Car Homepage</a>
                         <a href="car-listing-left-sidebar.html" class="list-group-item">List View Left Sidebar</a>
@@ -245,7 +248,7 @@
                         <a href="car-detail-right-sidebar.html" class="list-group-item">Detail Right Sidebar</a>
                     </div><!-- end sub-menu -->
 
-                    <a href="#" class="list-group-item" data-toggle="collapse" data-parent="#main-menu"><span><i class="fa fa-sign-in link-icon"></i></span>Sign in</a>
+                    <a href="@Url.Action("Login", "User")" class="list-group-item" @*data-toggle="collapse" data-parent="#main-menu"*@><span><i class="fa fa-sign-in link-icon"></i></span>Sign in</a>
                     <div class="collapse sub-menu" id="pages-links">
                         <div class="list-group-heading list-group-item">Standard <span>Pages</span></div>
                         <a href="about-us.html" class="list-group-item">About Us</a>
@@ -411,15 +414,18 @@
     <!-- Page Scripts Starts -->
     <script src="~/Assets/js/jquery.min.js"></script>
     <script src="~/Assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> <!--new script-->
     <script src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/Assets/js/jquery.flexslider.js"></script>
     <script src="~/Assets/js/bootstrap-datepicker.js"></script>
     <script src="~/Assets/js/owl.carousel.min.js"></script>
+
     <script src="~/Assets/js/custom-navigation.js"></script>
     <script src="~/Assets/js/custom-flex.js"></script>
     <script src="~/Assets/js/custom-owl.js"></script>
     <script src="~/Assets/js/custom-date-picker.js"></script>
     <script src="~/Assets/js/custom-video.js"></script>
+
     <!-- Page Scripts Ends -->
 
 </body>

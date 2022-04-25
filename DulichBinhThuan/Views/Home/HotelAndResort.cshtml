@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
                     <div class="main-img cruise-img">
-                        <a href="#">
+                        <a href="@Url.Action("HotelDetail", "Hotel", new { id = item.MaHotel })">
                             <img src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/67767835-91ebd5f50cfd65df93f855bfd4317225.jpeg?_src=imagekit&tr=c-at_max,h-360,q-40,w-640" class="img-responsive" alt="cruise-img" />
                             <div class="cruise-mask">
                                 <p>KHÁCH SẠN</p>
@@ -22,7 +22,7 @@
                 <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
                     <div class=" main-info cruise-info">
                         <div class="main-title cruise-title">
-                            <a href="#">@item.TenHotel</a>
+                            <a href="@Url.Action("HotelDetail", "Hotel", new { id = item.MaHotel })">@item.TenHotel</a>
                             <p>@item.DiaChi</p>
                             <div class="rating">
                                 <span><i class="fa fa-star orange"></i></span>

@@ -34,7 +34,7 @@
 
             <div class="offer-price-2">
                 <ul class="list-unstyled">
-                    <li class="price">@string.Format("{0:#,0}", item.Gia) đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
+                    <li class="price">@string.Format("{0:#,0}", item.Gia) đ<a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
                 </ul>
             </div><!-- end offer-price-2 -->
 

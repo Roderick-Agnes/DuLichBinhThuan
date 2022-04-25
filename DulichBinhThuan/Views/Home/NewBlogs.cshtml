@@ -8,7 +8,7 @@
     <div class="col-sm-6 col-md-4">
         <div class="main-block latest-block">
             <div class="main-img latest-img">
-                <a href="#">
+                <a href="@Url.Action("BlogDetail", "Blog", new { id = item.MaBlog })">
                     <img src="https://dulichkhampha24.com/wp-content/uploads/2021/01/thoi-diem-du-lich-binh-thuan.jpg" class="img-responsive" alt="blog-img" />
                 </a>
             </div><!-- end latest-img -->
@@ -22,7 +22,7 @@
             <div class="main-info latest-desc">
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 main-title">
-                        <a href="#">
+                        <a href="@Url.Action("BlogDetail", "Blog", new { id = item.MaBlog })">
                             @item.TieuDe
                         </a>
                         <p>
@@ -31,7 +31,7 @@
                     </div><!-- end columns -->
                 </div><!-- end row -->
 
-                <span class="arrow"><a href="#"><i class="fa fa-angle-right"></i></a></span>
+                <span class="arrow"><a href="@Url.Action("BlogDetail", "Blog", new { id = item.MaBlog })"><i class="fa fa-angle-right"></i></a></span>
             </div><!-- end latest-desc -->
         </div><!-- end latest-block -->
     </div><!-- end columns -->
