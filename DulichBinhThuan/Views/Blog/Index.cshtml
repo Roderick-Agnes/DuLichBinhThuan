@@ -1,0 +1,180 @@
+﻿@using DulichBinhThuan.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper ConvertDate(DateTime str)
+{
+    @str.ToString("dd/MM/yyyy");
+}
+@helper Truncate(String str, int len)
+{
+    if (str.Length > len)
+    {
+        @str.Substring(0, len) <text> ... </text>
+
+    }
+    else
+    {
+        @str
+    }
+}
+<!--================= PAGE-COVER ================-->
+<section class="page-cover" id="cover-blog-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Trang Bài Viết</h1>
+                <ul class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                    <li class="active">Danh sách bài viết</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--==== INNERPAGE-WRAPPER =====-->
+<section class="innerpage-wrapper">
+    <div id="blog-listings" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 side-bar blog-sidebar left-side-bar">
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="images/car-ad.jpg" class="img-responsive" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block instagram">
+                                <h2 class="side-bar-heading">Ảnh Bình Thuận</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="#"><img src="https://www.vietnambooking.com/wp-content/uploads/2018/10/dulich-binh-thuan-kinh-nghiem-de-co-chuyen-di-ynghia-tiet-kiem-13102018-1.jpg" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://www.vietnambooking.com/wp-content/uploads/2018/10/dulich-binh-thuan-kinh-nghiem-de-co-chuyen-di-ynghia-tiet-kiem-13102018-1.jpg" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://cdnimg.vietnamplus.vn/uploaded/ngtnnn/2020_10_24/2410phanthiet.jpg" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://phanthietvn.com/wp-content/uploads/2013/10/lich-su-hinh-thanh.jpg" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://cdn3.ivivu.com/2016/12/dao-phu-quy-ivivu-7.png" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtvQAaYW9kmqYzse5NV5pRlfobmroK0a2jCg&usqp=CAU" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEWlqkLoHmFea4vQBr4MQwiPlKvVIyhO8wvSmoVhAvVceoDMPCMQKoM8u2-dCELvpSfzo&usqp=CAU" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEWlqkLoHmFea4vQBr4MQwiPlKvVIyhO8wvSmoVhAvVceoDMPCMQKoM8u2-dCELvpSfzo&usqp=CAU" class="img-responsive" alt="insta-img" /></a></li>
+                                    <li><a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-MWh9o3jtpnz3wnO3Bze2gqGwD9IEUXHrig&usqp=CAU" class="img-responsive" alt="insta-img" /></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block contact">
+                                <h2 class="side-bar-heading">Liên Hệ Chúng Tôi</h2>
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-envelope"></i></span></div>
+                                    <div class="text"><p>support@star-hotel.com</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-phone"></i></span></div>
+                                    <div class="text"><p>0999 999 999</p></div>
+                                </div><!-- end c-list -->
+
+                                <div class="c-list">
+                                    <div class="icon"><span><i class="fa fa-map-marker"></i></span></div>
+                                    <div class="text"><p> Cần Thơ</p></div>
+                                </div><!-- end c-list -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block recent-post">
+                                <h2 class="side-bar-heading">Bài Viết Khác</h2>
+
+                                @Html.Action("OrderBlogs", "Blog", new { id = 0 })
+
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+                    </div><!-- end row -->
+
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block follow-us">
+                                <h2 class="side-bar-heading">Follow Us</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="#"><span><i class="fa fa-facebook"></i></span></a></li>
+                                    <li><a href="#"><span><i class="fa fa-twitter"></i></span></a></li>
+                                    <li><a href="#"><span><i class="fa fa-linkedin"></i></span></a></li>
+                                    <li><a href="#"><span><i class="fa fa-google-plus"></i></span></a></li>
+                                    <li><a href="#"><span><i class="fa fa-pinterest-p"></i></span></a></li>
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block tags">
+                                <h2 class="side-bar-heading">Thẻ</h2>
+                                <ul class="list-unstyled list-inline">
+                                    <li><a href="#" class="btn btn-g-border">Bài Viết Mới Nhất</a></li>
+                                    <li><a href="#" class="btn btn-g-border">Bài Viết Nhiều Lượt Xem Nhất</a></li>
+                                    <li><a href="#" class="btn btn-g-border">Viết Bởi Long Thịnh</a></li>
+                                    <li><a href="#" class="btn btn-g-border">Viết Bởi Mai Anh</a></li>
+
+                                </ul>
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                    <div class="space-right">
+                        @foreach (var item in Model)
+                        {
+                            <div class="main-block blog-post blog-list">
+                                <div class="main-img blog-post-img">
+                                    <a href="@Url.Action("BlogDetail", "Blog", new { id = item.MaBlog })">
+                                        <img src="https://nemtv.vn/wp-content/uploads/2019/04/binh-thuan-co-gi-nemtv-02.jpg" class="img-responsive" alt="blog-post-image" />
+                                    </a>
+                                    <div class="main-mask blog-post-info">
+                                        <ul class="list-inline list-unstyled blog-post-info">
+                                            <li><span><i class="fa fa-calendar"></i></span>@ConvertDate(Convert.ToDateTime(item.NgayTao))</li>
+                                            <li><span><i class="fa fa-user"></i></span>By: <a href="#">@item.NguoiDang</a></li>
+                                        </ul>
+                                    </div>
+                                </div><!-- end blog-post-img -->
+
+                                <div class="blog-post-detail">
+                                    <h2 class="blog-post-title"><a href="blog-detail-left-sidebar.html">@item.TieuDe</a></h2>
+                                    <p>@Truncate(item.MoTa, 200)</p>
+                                    <a href="@Url.Action("BlogDetail", "Blog", new { id = item.MaBlog })" class="btn btn-orange">Xem Chi Tiết</a>
+                                </div><!-- end blog-post-detail -->
+                            </div><!-- end blog-post -->
+                        }
+
+
+                        <div class="pages">
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                        </div><!-- end pages -->
+
+                    </div><!-- end space-right -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end blog-listings -->
+</section><!-- end innerpage-wrapper -->

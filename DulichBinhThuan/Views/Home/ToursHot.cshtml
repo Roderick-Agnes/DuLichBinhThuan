@@ -1,0 +1,57 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="item">
+        <div class="main-block tour-block">
+            <div class="main-img">
+                <a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})">
+                    <img src="https://www.chudu24.com/wp-content/uploads/2017/08/muong-thanh-muine.png" class="img-responsive" alt="tour-img" />
+                    <div class="cruise-mask">
+                        @if (item.LoaiTour.SoNgay != 0 && item.LoaiTour.SoDem != 0)
+                        {
+                            <p>
+                                @item.LoaiTour.SoNgay Ngày @item.LoaiTour.SoDem Đêm
+                            </p>
+                        }
+                        else if (item.LoaiTour.SoNgay == 0 && item.LoaiTour.SoDem != 0)
+                        {
+                            <p>
+                                @item.LoaiTour.SoDem Đêm
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                @item.LoaiTour.SoNgay Ngày
+                            </p>
+                        }
+                    </div><!-- end cruise-mask -->
+                </a>
+            </div><!-- end offer-img -->
+
+            <div class="offer-price-2">
+                <ul class="list-unstyled">
+                    <li class="price">@string.Format("{0:#,0}", item.Gia) đ<a href="#"><span class="arrow"><i class="fa fa-angle-right"></i></span></a></li>
+                </ul>
+            </div><!-- end offer-price-2 -->
+
+            <div class="main-info tour-info">
+                <div class="main-title tour-title">
+                    <a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})"> @item.TenTour</a>
+                    <p>Hành Trình: @item.HanhTrinh</p>
+                    <!-- custom vote -->
+                    <div class="rating">
+                        <span><i class="fa fa-star orange"></i></span>
+                        <span><i class="fa fa-star orange"></i></span>
+                        <span><i class="fa fa-star orange"></i></span>
+                        <span><i class="fa fa-star orange"></i></span>
+                        <span><i class="fa fa-star grey"></i></span>
+                    </div>
+                </div><!-- end tour-title -->
+            </div><!-- end tour-info -->
+        </div><!-- end tour-block -->
+    </div><!-- end item -->
+}

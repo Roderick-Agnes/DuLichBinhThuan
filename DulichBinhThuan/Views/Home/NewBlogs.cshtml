@@ -1,0 +1,38 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="col-sm-6 col-md-4">
+        <div class="main-block latest-block">
+            <div class="main-img latest-img">
+                <a href="#">
+                    <img src="https://dulichkhampha24.com/wp-content/uploads/2021/01/thoi-diem-du-lich-binh-thuan.jpg" class="img-responsive" alt="blog-img" />
+                </a>
+            </div><!-- end latest-img -->
+
+            <div class="latest-info">
+                <ul class="list-unstyled">
+                    <li><span><i class="fa fa-calendar-minus-o"></i></span>@item.NgayTao.ToString("dd/MM/yyyy")<span class="author">Viết bởi: <a href="#">@item.NguoiDang</a></span></li>
+                </ul>
+            </div><!-- end latest-info -->
+
+            <div class="main-info latest-desc">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 main-title">
+                        <a href="#">
+                            @item.TieuDe
+                        </a>
+                        <p>
+                            @item.MoTa
+                        </p>
+                    </div><!-- end columns -->
+                </div><!-- end row -->
+
+                <span class="arrow"><a href="#"><i class="fa fa-angle-right"></i></a></span>
+            </div><!-- end latest-desc -->
+        </div><!-- end latest-block -->
+    </div><!-- end columns -->
+}

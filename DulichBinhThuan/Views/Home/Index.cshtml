@@ -1,0 +1,309 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--========================= FLEX SLIDER =====================-->
+<section class="flexslider-container" id="flexslider-container-1">
+
+    <div class="flexslider slider" id="slider-1">
+        <ul class="slides">
+
+            <li class="item-1" style="background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://www.cntravellerme.com/2021/05/1JuimWE5-LLM_MAINPOOL_7-(1)-1024x489.jpg') 50% 0%; background-size: cover; height: 100%; ">
+                <div class=" meta">
+                    <div class="container">
+                        <h2>Đặt Tours</h2>
+                        <h1>Bình Thuận</h1>
+                        <a href="#" class="btn btn-default">Đặt Ngay</a>
+                    </div><!-- end container -->
+                </div><!-- end meta -->
+            </li><!-- end item-1 -->
+
+            <li class="item-2" style="background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://kconceptvn.com/wp-content/uploads/2020/04/hotel-photography-chup-anh-khach-san-resortNovotel-phu-quoc-resort-02.jpg') 50% 0%; background-size: cover; height: 100%; ">
+                <div class=" meta">
+                    <div class="container">
+                        <h2>Đặt Khách Sạn</h2>
+                        <h1>Bình Thuận</h1>
+                        <a href="#" class="btn btn-default">Đặt Ngay!</a>
+                    </div><!-- end container -->
+                </div><!-- end meta -->
+            </li><!-- end item-2 -->
+
+        </ul>
+    </div><!-- end slider -->
+
+    <div class="search-tabs" id="search-tabs-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <ul class="nav nav-tabs center-tabs">
+
+                        <li class="active"><a href="#hotels" data-toggle="tab"><span><i class="fa fa-building"></i></span><span class="st-text">Hotels</span></a></li>
+                        <li><a href="#tours" data-toggle="tab"><span><i class="fa fa-suitcase"></i></span><span class="st-text">Tours</span></a></li>
+
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <div id="hotels" class="tab-pane in active">
+                            <form>
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="form-group left-icon">
+                                                    <input type="text" class="form-control dpd1" placeholder="Ngày Đến">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="form-group left-icon">
+                                                    <input type="text" class="form-control dpd2" placeholder="Ngày Đi">
+                                                    <i class="fa fa-calendar"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                        </div><!-- end row -->
+                                    </div><!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-4">
+                                                <div class="form-group right-icon">
+                                                    <select class="form-control">
+                                                        <option selected>Phòng</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                            <div class="col-xs-6 col-sm-6 col-md-4">
+                                                <div class="form-group right-icon">
+                                                    <select class="form-control">
+                                                        <option selected>Người Lớn</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                            <div class="col-xs-6 col-sm-6 col-md-4">
+                                                <div class="form-group right-icon">
+                                                    <select class="form-control">
+                                                        <option selected>Trẻ Em</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                    </select>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                        </div><!-- end row -->
+                                    </div><!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
+                                        <button class="btn btn-orange">Tìm Kiếm</button>
+                                    </div><!-- end columns -->
+
+                                </div><!-- end row -->
+                            </form>
+                        </div><!-- end hotels -->
+
+                        <div id="tours" class="tab-pane">
+                            <form>
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
+                                        <div class="form-group left-icon">
+                                            <input type="text" class="form-control" placeholder="Điểm Đến" />
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                    </div><!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                                        @Html.Action("ToursTypes", "Home")
+                                        
+                                    </div><!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="form-group right-icon">
+                                                    <select class="form-control">
+                                                        <option selected>Người Lớn</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                            <div class="col-xs-12 col-sm-6">
+                                                <div class="form-group right-icon">
+                                                    <select class="form-control">
+                                                        <option selected>Trẻ Em</option>
+                                                        <option>0</option>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                    </select>
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div><!-- end columns -->
+
+                                        </div><!-- end row -->
+                                    </div><!-- end columns -->
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 search-btn">
+                                        <button class="btn btn-orange">Tìm Kiếm</button>
+                                    </div><!-- end columns -->
+
+                                </div><!-- end row -->
+                            </form>
+                        </div><!-- end tours -->
+
+
+
+                    </div><!-- end tab-content -->
+
+                </div><!-- end columns -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end search-tabs -->
+
+</section><!-- end flexslider-container -->
+
+<!--=============== TOUR HOT ===============-->
+<section id="tour-offers" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-heading">
+                    <h2 style="color:azure;">Tours Hot</h2>
+                    <hr class="heading-line" />
+                </div><!-- end page-heading -->
+
+                <div class="owl-carousel owl-theme owl-custom-arrow" id="owl-tour-offers">
+
+                    @Html.Action("ToursHot", "Home")
+
+
+                </div><!-- end owl-tour-offers -->
+
+                <div class="view-all text-center">
+                    <a href="@Url.Action("Index", "Tours")" class="btn btn-orange">Xem thêm</a>
+                </div><!-- end view-all -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end tour-offers -->
+<!--=============== HOTEL & RESORT OFFERS ===============-->
+<section id="cruise-offers" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-heading">
+                    <h2>Hotel & Resort</h2>
+                    <hr class="heading-line" />
+                </div><!-- end page-heading -->
+
+                <div class="row">
+                    @Html.Action("HotelAndResort", "Home")
+                </div><!-- end row -->
+
+                <div class="view-all text-center">
+                    <a href="@Url.Action("Index", "Hotel")" class="btn btn-orange">Xem thêm</a>
+                </div><!-- end view-all -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end cruise-offers -->
+<!--==================== VIDEO BANNER ===================-->
+
+<section id="video-banner" class="banner-padding back-size">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Bình Thuận Tours</h2>
+
+
+                <iframe width="1300" height="500" src="https://www.youtube.com/embed/vkgYFMjdIhE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen"></iframe>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end video-banner -->
+<!--==================== TESTIMONIALS ====================-->
+<section id="testimonials" class="section-padding back-size">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-heading white-heading">
+                    <h2>Lời Cam Kết</h2>
+                    <hr class="heading-line" />
+                </div><!-- end page-heading -->
+
+                <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                    <div class="carousel-inner text-center">
+
+                        <div class="item active">
+                            <blockquote>Chúng tôi sẽ hoàn tiền gấp 5 nếu bạn không hài lòng về bất cứ dịch vụ nào. Trãi nghiệm của khách hàng được quan tâm hàng đầu.</blockquote>
+                            <div class="rating">
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                @*<span><i class="fa fa-star lightgrey"></i></span>*@
+                            </div><!-- end rating -->
+                            <small>Tô Lê Long Thịnh</small>
+                        </div><!-- end item -->
+
+
+                    </div><!-- end carousel-inner -->
+
+                    <ol class="carousel-indicators">
+                        <li data-target="#quote-carousel" data-slide-to="0" class="active">
+                            <img src="https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/278061584_1377873229303676_6046986131941654950_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=OzP18wWlLm0AX8HxXK4&_nc_ht=scontent.fsgn4-1.fna&oh=00_AT8YgJNv90PRmIH4c9oUDxgLI55wHMRJ0xpj7RERC3Y7SA&oe=62653C82" class="img-responsive" alt="client-img">
+                        </li>
+                    </ol>
+
+                </div><!-- end quote-carousel -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end testimonials -->
+<!--================ LATEST BLOG ==============-->
+<section id="latest-blog" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-heading">
+                    <h2>Bài Viết</h2>
+                    <hr class="heading-line" />
+                </div>
+
+                <div class="row">
+                    @Html.Action("NewBlogs", "Home")
+                </div><!-- end row -->
+
+                <div class="view-all text-center">
+                    <a href="#" class="btn btn-orange">Xem Thêm</a>
+                </div><!-- end view-all -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end latest-blog -->
+

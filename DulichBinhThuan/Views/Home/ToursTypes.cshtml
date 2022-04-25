@@ -1,0 +1,15 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+<div class="form-group right-icon">
+    <select class="form-control" name="TourTypes">
+        <option value="-1" selected>Loại Tours</option>
+        @foreach (var item in Model)
+        {
+            <option>@item.SoNgay Ngày @item.SoDem Đêm</option>
+        }
+    </select>
+    <i class="fa fa-angle-down"></i>
+</div>
+

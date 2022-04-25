@@ -1,0 +1,46 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+@if (ViewBag.ErrorCode == "1")
+{
+    <div class="event">
+        <p class="date"></p>
+        <p class="txt">
+            <span>Lịch trình đang được cập nhật... </span>
+            <br />
+        </p>
+    </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="event">
+            <p class="date">@item.TieuDe</p>
+            <p class="txt">
+
+                @if (item.NoiDungBuoiSang != "")
+                {
+                    <span>Sáng: @item.NoiDungBuoiSang </span><br />
+                }
+                @if (item.NoiDungBuoiTrua != "")
+                {
+                    <span>Trưa: @item.NoiDungBuoiTrua </span><br />
+                }
+                @if (item.NoiDungBuoiToi != "")
+                {
+                    <span>Chiều: @item.NoiDungBuoiToi </span><br />
+                }
+                @if (item.NoiDungThem != "")
+                {
+                    <span>@item.NoiDungThem </span><br />
+                }
+
+
+
+            </p>
+        </div>
+    }
+}
+

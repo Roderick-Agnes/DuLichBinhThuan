@@ -1,0 +1,230 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    ViewBag.Title = "HotelDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================= PAGE-COVER ================-->
+<section class="page-cover" id="cover-hotel-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Chi tiết @Model.TenHotel</h1>
+                <ul class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Hotel")">Khách Sạn</a></li>
+                    <li class="active">@Model.TenHotel</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--===== INNERPAGE-WRAPPER ====-->
+<section class="innerpage-wrapper">
+    <div id="hotel-details" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
+
+                    <div class="side-bar-block booking-form-block">
+                        <h2 class="selected-price">@string.Format("{0:#,0}", Model.Gia) VNĐ </h2>
+
+                        <div class="booking-form">
+                            <h3>Đặt Khách Sạn</h3>
+                            <p>Chúc bạn vui vẻ</p>
+
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Họ & Tên" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Số điện thoại" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Địa Chỉ" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control dpd1" placeholder="Ngày nhận phòng" required />                                       		<i class="fa fa-calendar"></i>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control dpd2" placeholder="Ngày trả phòng" required />                                       		<i class="fa fa-calendar"></i>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-12 col-lg-6 no-sp-r">
+                                        <div class="form-group right-icon">
+                                            <select class="form-control">
+                                                <option selected>Phòng</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-12 col-lg-6 no-sp-l">
+                                        <div class="form-group right-icon">
+                                            <select class="form-control">
+                                                <option selected>Giường</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                            </select>
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="checkbox custom-check">
+                                    <input type="checkbox" id="check01" name="checkbox" />
+                                    <label for="check01"><span><i class="fa fa-check"></i></span>Ấn vào nếu bạn đồng ý với <a href="#">Điều khoản & Điều kiện.</a></label>
+                                </div>
+
+                                <button class="btn btn-block btn-orange">Đặt Phòng</button>
+                            </form>
+
+                        </div><!-- end booking-form -->
+                    </div><!-- end side-bar-block -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="images/car-ad.jpg" class="img-responsive" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block support-block">
+                                <h3>Bạn Cần Trợ Giúp</h3>
+                                <p>Nếu có bất kì ý kiến nào, bạn vui lòng liên hệ số dưới đây để đươc trợ giúp.</p>
+                                <div class="support-contact">
+                                    <span><i class="fa fa-phone"></i></span>
+                                    <p>0999 999 999</p>
+                                </div><!-- end support-contact -->
+                            </div><!-- end side-bar-block -->
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+
+                    <div class="detail-slider">
+                        <div class="feature-slider">
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/209912938.jpg?k=821fde3eab0024736f4337da38c71376c3d8b215e79ee4e3b796a438e5aea06e&o=&hp=1" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/205043130.jpg?k=58580112f65382178d5bbfb00e1623dfd1e097d5142152ca86b1c366d37eafcc&o=&hp=1" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/205051382.jpg?k=9ebbca201a625d148812116c7f061a82f3d1370ca3201fb8814d50a21269b662&o=&hp=1" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/283268469.jpg?k=9fa7dc183c7a653df94b7c466e21ec6b98c95286657797cae4f7827cce8ede67&o=&hp=1" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/283150639.jpg?k=1f02aab84642de99f4b9061264f8020a509f6369f57b49e79c8f9f1f348f75a2&o=&hp=1" class="img-responsive" alt="feature-img" /></div>
+                        </div><!-- end feature-slider -->
+
+                        <div class="feature-slider-nav">
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/209912938.jpg?k=821fde3eab0024736f4337da38c71376c3d8b215e79ee4e3b796a438e5aea06e&o=&hp=1" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/205043130.jpg?k=58580112f65382178d5bbfb00e1623dfd1e097d5142152ca86b1c366d37eafcc&o=&hp=1" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/205051382.jpg?k=9ebbca201a625d148812116c7f061a82f3d1370ca3201fb8814d50a21269b662&o=&hp=1" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/283268469.jpg?k=9fa7dc183c7a653df94b7c466e21ec6b98c95286657797cae4f7827cce8ede67&o=&hp=1" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/283150639.jpg?k=1f02aab84642de99f4b9061264f8020a509f6369f57b49e79c8f9f1f348f75a2&o=&hp=1" class="img-responsive" alt="feature-thumb" /></div>
+                        </div><!-- end feature-slider-nav -->
+                    </div>  <!-- end detail-slider -->
+
+                    <div class="detail-tabs">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="active"><a href="#hotel-overview" data-toggle="tab">Thông tin </a></li>
+                            <li><a href="#restaurant" data-toggle="tab">Tiện nghi</a></li>
+                            <li><a href="#pick-up" data-toggle="tab">Điểm nổi bật</a></li>
+
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div id="hotel-overview" class="tab-pane in active">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 tab-img">
+                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/209912938.jpg?k=821fde3eab0024736f4337da38c71376c3d8b215e79ee4e3b796a438e5aea06e&o=&hp=1" class="img-responsive" alt="flight-detail-img" />
+                                    </div><!-- end columns -->
+
+                                    <div class="col-sm-8 col-md-8 tab-text">
+                                        <h3>@Model.TenHotel</h3>
+                                        <p>
+                                            @Model.ThongTin
+                                        </p>
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+                            </div><!-- end hotel-overview -->
+
+                            <div id="restaurant" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 tab-img">
+                                        <img src="images/hotel-detail-tab-2.jpg" class="img-responsive" alt="flight-detail-img" />
+                                    </div><!-- end columns -->
+
+                                    <div class="col-sm-8 col-md-8 tab-text">
+                                        <h3>Các tiện nghi được ưa chuộng nhất</h3>
+                                        <p>
+                                            @Model.TienNghi
+                                        </p>
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+                            </div><!-- end restaurant -->
+
+                            <div id="pick-up" class="tab-pane">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 tab-img">
+                                        <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/283269114.jpg?k=2f881f047277608eeee8f0bba27de6befaf80a74f6c5e3207dd912a955f2db60&o=&hp=1" class="img-responsive" alt="flight-detail-img" />
+                                    </div><!-- end columns -->
+
+                                    <div class="col-sm-8 col-md-8 tab-text">
+                                        <h3>Điểm nổi bật</h3>
+                                        <p>
+                                            @Model.DiemNoiBat
+                                        </p>
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+                            </div><!-- end pick-up -->
+
+
+
+                        </div><!-- end tab-content -->
+                    </div><!-- end detail-tabs -->
+
+                    <div class="available-blocks" id="available-rooms">
+                        <h2>Gợi ý khách sạn khác</h2>
+                        @Html.Action("OrderHotels", "Hotel", new { id = Model.MaHotel })
+                    </div><!-- end available-rooms -->
+                    <div class="view-all text-center">
+                        <a href="@Url.Action("Index", "Hotel")" class="btn btn-orange">Xem thêm</a>
+                    </div><!-- end view-all -->
+                </div><!-- end columns -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end hotel-details -->
+</section><!-- end innerpage-wrapper -->
+<!-- Page Scripts Starts -->
+<script src="~/Assets/js/jquery.min.js"></script>
+<script src="~/Assets/js/bootstrap.min.js"></script>
+<script src="~/Assets/js/bootstrap-datepicker.js"></script>
+<script src="~/Assets/js/slick.min.js"></script>
+<script src="~/Assets/js/custom-navigation.js"></script>
+<script src="~/Assets/js/custom-date-picker.js"></script>
+<script src="~/Assets/js/custom-slick.js"></script>

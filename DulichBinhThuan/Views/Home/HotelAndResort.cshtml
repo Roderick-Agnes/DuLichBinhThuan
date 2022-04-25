@@ -1,0 +1,62 @@
+﻿
+@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="col-sm-6 col-md-6">
+        <div class="main-block cruise-block">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-md-push-6 no-pd-l">
+                    <div class="main-img cruise-img">
+                        <a href="#">
+                            <img src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/67767835-91ebd5f50cfd65df93f855bfd4317225.jpeg?_src=imagekit&tr=c-at_max,h-360,q-40,w-640" class="img-responsive" alt="cruise-img" />
+                            <div class="cruise-mask">
+                                <p>KHÁCH SẠN</p>
+                            </div><!-- end cruise-mask -->
+                        </a>
+                    </div><!-- end cruise-img -->
+                </div><!-- end columns -->
+
+                <div class="col-sm-12 col-md-6 col-md-pull-6 no-pd-r">
+                    <div class=" main-info cruise-info">
+                        <div class="main-title cruise-title">
+                            <a href="#">@item.TenHotel</a>
+                            <p>@item.DiaChi</p>
+                            <div class="rating">
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star orange"></i></span>
+                                <span><i class="fa fa-star grey"></i></span>
+                            </div><!-- end rating -->
+
+                            <span class="cruise-price">@string.Format("{0:#,0}", item.Gia)  VND</span>
+                        </div><!-- end cruise-title -->
+                    </div><!-- end cruise-info -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end cruise-block -->
+    </div><!-- end columns -->
+}
+
+@*@if (item.SoNgay != 0 && item.SoDem != 0)
+{
+    <p>
+        @item.SoNgay Ngày @item.SoDem Đêm
+    </p>
+}
+else if (item.SoNgay == 0 && item.SoDem != 0)
+{
+    <p>
+        @item.SoDem Đêm
+    </p>
+}
+else
+{
+    <p>
+        @item.SoNgay Ngày
+    </p>
+}*@

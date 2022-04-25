@@ -1,0 +1,295 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    ViewBag.Title = "ToursDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================ PAGE-COVER ================-->
+<section class="page-cover" id="cover-tour-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Chi Tiết Tours</h1>
+                <ul class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Tours")">Tours</a></li>
+                    <li class="active">@Model.TenTour</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--===== INNERPAGE-WRAPPER ====-->
+<section class="innerpage-wrapper">
+    <div id="tour-details" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
+
+                    <div class="side-bar-block booking-form-block">
+                        <h2 class="selected-price">Giá: @string.Format("{0:#,0}", @Model.Gia) đ </h2>
+
+                        <div class="booking-form">
+                            <h3>Đặt Tour</h3>
+                            <p>Đặt Tour Cho Bạn</p>
+
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Tên" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Điện Thoại" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control dpd3" placeholder="Ngày Đặt" required />
+                                </div>
+
+                                <div class="checkbox custom-check">
+                                    <input type="checkbox" id="check01" name="checkbox" />
+                                    <label for="check01"><span><i class="fa fa-check"></i></span>Ấn vào nếu bạn đồng ý với <a href="#">Điều khoản & Điều kiện.</a></label>
+                                </div>
+
+                                <button class="btn btn-block btn-orange">Đặt Tour</button>
+                            </form>
+
+                        </div><!-- end booking-form -->
+                    </div><!-- end side-bar-block -->
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="https://cdn1.ivivu.com/iVivu/2020/06/29/18/2-3-800x450.jpg" class="img-responsive" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block support-block">
+                                <h3>Bạn Cần Trợ Giúp</h3>
+                                <p>Nếu có bất kì ý kiến nào, bạn vui lòng liên hệ số dưới đây để đươc trợ giúp.</p>
+                                <div class="support-contact">
+                                    <span><i class="fa fa-phone"></i></span>
+                                    <p>0999 999 999</p>
+                                </div><!-- end support-contact -->
+                            </div><!-- end side-bar-block -->
+                        </div>
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+
+                    <div class="detail-slider">
+                        <div class="feature-slider">
+                            <div><img src="https://kingtourist.com.vn/wp-content/uploads/2021/04/kinh-nghiem-du-lich-phan-thiet-mui-ne-kig-touris-1.jpg" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://disantrangan.vn/wp-content/uploads/2021/03/bau-trang-du-lich-phan-thiet-thuthuy-700x467.jpg" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://dulich9.com/wp-content/uploads/2019/05/Kinh-nghiem-du-lich-Mui-Ne-02.jpg" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://yt.cdnxbvn.com/medias/list.com.vn/29532/tour-phan-thiet-2-ngay-1-dem-bazan-travel-gia-re.jpg" class="img-responsive" alt="feature-img" /></div>
+                            <div><img src="https://datviettour.com.vn/uploads/images/mien-nam/vung-tau/hinh-dai-dien/vung-tau-bien-goi-2n1d.jpg" class="img-responsive" alt="feature-img" /></div>
+                        </div><!-- end feature-slider -->
+
+                        <div class="feature-slider-nav">
+                            <div><img src="https://kingtourist.com.vn/wp-content/uploads/2021/04/kinh-nghiem-du-lich-phan-thiet-mui-ne-kig-touris-1.jpg" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://disantrangan.vn/wp-content/uploads/2021/03/bau-trang-du-lich-phan-thiet-thuthuy-700x467.jpg" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://dulich9.com/wp-content/uploads/2019/05/Kinh-nghiem-du-lich-Mui-Ne-02.jpg" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://yt.cdnxbvn.com/medias/list.com.vn/29532/tour-phan-thiet-2-ngay-1-dem-bazan-travel-gia-re.jpg" class="img-responsive" alt="feature-thumb" /></div>
+                            <div><img src="https://datviettour.com.vn/uploads/images/mien-nam/vung-tau/hinh-dai-dien/vung-tau-bien-goi-2n1d.jpg" class="img-responsive" alt="feature-thumb" /></div>
+                        </div><!-- end feature-slider-nav -->
+
+                        <ul class="list-unstyled features tour-features">
+                            <li><div class="f-icon"><i class="fa fa-barcode"></i></div><div class="f-text"><p class="f-heading">Mã Tours:</p><p class="f-data">@Model.MaTour</p></div></li>
+                            <li>
+                                <div class="f-icon"><i class="fa fa-clock-o"></i></div>
+                                <div class="f-text">
+                                    <p class="f-heading">Thời Gian</p>
+                                    @if (Model.LoaiTour.SoNgay != 0 && Model.LoaiTour.SoDem != 0)
+                                    {
+                                        <p class="f-data">
+                                            @Model.LoaiTour.SoNgay Ngày @Model.LoaiTour.SoDem Đêm
+                                        </p>
+                                    }
+                                    else if (Model.LoaiTour.SoNgay == 0 && Model.LoaiTour.SoDem != 0)
+                                    {
+                                        <p class="f-data">
+                                            @Model.LoaiTour.SoDem Đêm
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="f-data">
+                                            @Model.LoaiTour.SoNgay Ngày
+                                        </p>
+                                    }
+                                </div>
+                            </li>
+                            <li><div class="f-icon"><i class="fa fa-car"></i></div><div class="f-text"><p class="f-heading">Vận Chuyển</p><p class="f-data"> @Model.PhuongTien.TenPhuongTien  </p></div></li>
+                        </ul>
+                    </div><!-- end detail-slider -->
+
+                    <div class="detail-tabs">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="active"><a href="#tour-information" data-toggle="tab">Thông Tin Tour</a></li>
+                            <li><a href="#flight" data-toggle="tab">Lịch trình</a></li>
+                            <li><a href="#map-overview" data-toggle="tab">Bình Luận</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div id="tour-information" class="tab-pane in active">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 tab-img">
+                                        <img src="https://kingtourist.com.vn/wp-content/uploads/2021/04/kinh-nghiem-du-lich-phan-thiet-mui-ne-kig-touris-1.jpg" class="img-responsive" alt="flight-detail-img" />
+                                    </div><!-- end columns -->
+
+                                    <div class="col-sm-8 col-md-8 tab-text">
+                                        <h3>@Model.TenTour</h3>
+                                        <p>@Model.MoTa</p>
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+                            </div><!-- end hotel-overview -->
+
+                            <div id="flight" class="tab-pane">
+                                <div class="row">
+                                    <div class="vtl col-sm-8 col-md-8 tab-text">
+                                        @Html.Action("LichTrinhTab", "Tours", new { id = Model.MaTour })
+                                    </div><!-- end columns -->
+                                </div><!-- end row -->
+                            </div><!-- end restaurant -->
+
+                            <div id="map-overview" class="tab-pane">
+                                <div class="row">
+                                    <section class="content-item" id="comments">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    <form>
+                                                        <h3 class="pull-left">Bình Luận</h3>
+                                                        <button type="submit" class="btn btn-normal pull-right">Gửi</button>
+                                                        <fieldset>
+                                                            <div class="row">
+                                                                <div class="col-sm-3 col-lg-2 hidden-xs">
+                                                                    <img class="img-responsive" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7FfWrqJ5ro7SdxlBsnmCo_mwrnRly5mHUg&usqp=CAU" alt="">
+                                                                </div>
+                                                                <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                                                    <textarea class="form-control" id="message" placeholder="Your message" required=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+
+                                                    <h3>1 Bình Luận</h3>
+
+                                                    <!-- COMMENT 1 - START -->
+                                                    <div class="media">
+                                                        <a class="pull-left" href="#"><img class="media-object" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx7FfWrqJ5ro7SdxlBsnmCo_mwrnRly5mHUg&usqp=CAU" alt=""></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">Tô Lê Long Thịnh</h4>
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                                                <li><i class="fa fa-calendar"></i>27/02/2014</li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <!-- COMMENT 1 - END -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div><!-- end row -->
+                            </div><!-- end pick-up -->
+
+                        </div><!-- end tab-content -->
+                    </div><!-- end detail-tabs -->
+
+                    <div class="available-blocks" id="available-tours">
+                        <h2>Gợi Ý Tours Khác</h2>
+                        @Html.Action("OrderTours", "Tours", new { id = Model.MaTour })
+                    </div><!-- end available-tours -->
+                    <div class="view-all text-center">
+                        <a href="@Url.Action("Index", "Tours")" class="btn btn-orange">Xem thêm</a>
+                    </div><!-- end view-all -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end tour-detail -->
+</section><!-- end innerpage-wrapper -->
+<!--======================= BEST FEATURES =====================-->
+<section id="best-features" class="banner-padding black-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-dollar"></i></span>
+                    <h3>Đảm bảo giá tốt nhất</h3>
+                    <p>Chúng tôi đảm bảo đem lại những tours có giá tốt nhất cho bạn</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-sm-6 col-md-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-lock"></i></span>
+                    <h3>An toàn và Bảo mật</h3>
+                    <p>Thông tin khách hàng sẽ được bảo mật tuyệt đối.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-sm-6 col-md-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-thumbs-up"></i></span>
+                    <h3>Đại lý du lịch tốt nhất</h3>
+                    <p>Chúng tôi tự hào khi là đại lí du lịch được nhiều người đặt nhất.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+
+            <div class="col-sm-6 col-md-3">
+                <div class="b-feature-block">
+                    <span><i class="fa fa-bars"></i></span>
+                    <h3>Hướng dẫn Du lịch</h3>
+                    <p>Chuyên nghiệp & ân cần là điều mỗi hướng dẫn viên của chúng tôi được tranning.</p>
+                </div><!-- end b-feature-block -->
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end best-features -->
+<!--========================= NEWSLETTER-1 ==========================-->
+<section id="newsletter-1" class="section-padding back-size newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                <div class="input-group">
+                    <input type="email" class="form-control input-lg" placeholder="Nhập địa chỉ Email" required />
+                    <span class="input-group-btn"><button class="btn btn-lg"><i class="fa fa-envelope"></i></button></span>
+                </div>
+            </div>
+            </form>
+        </div><!-- end columns -->
+    </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end newsletter-1 -->
+<!-- Page Scripts Starts -->
+<script src="~/Assets/js/jquery.min.js"></script>
+<script src="~/Assets/js/bootstrap.min.js"></script>
+<script src="~/Assets/js/bootstrap-datepicker.js"></script>
+<script src="~/Assets/js/slick.min.js"></script>
+<script src="~/Assets/js/custom-navigation.js"></script>
+<script src="~/Assets/js/custom-date-picker.js"></script>
+<script src="~/Assets/js/custom-slick.js"></script>
+<!-- Page Scripts Ends -->

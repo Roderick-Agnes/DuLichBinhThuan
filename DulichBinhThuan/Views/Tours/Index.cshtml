@@ -1,0 +1,209 @@
+﻿@using DulichBinhThuan.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Tour>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================== PAGE-COVER =================-->
+<section class="page-cover" id="cover-tour-grid-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Chọn Tours Cho Riêng Bạn</h1>
+                <ul class="breadcrumb">
+                    <li><a href="#">Trang Chủ</a></li>
+                    <li class="active">Tours</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--===== INNERPAGE-WRAPPER ====-->
+<section class="innerpage-wrapper">
+    <div id="tour-grid" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
+
+                    <div class="side-bar-block filter-block">
+                        <h3>Lọc Tours</h3>
+                        <p>Hãy tìm kiếm Tours Cho Bạn</p>
+
+                        <div class="panels-group">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#panel-1" data-toggle="collapse">Sắp Xếp <span><i class="fa fa-angle-down"></i></span></a>
+                                </div><!-- end panel-heading -->
+
+                                <div id="panel-1" class="panel-collapse collapse">
+                                    <div class="panel-body text-left">
+                                        <ul class="list-unstyled">
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check01" name="checkbox" />
+                                                <label for="check01"><span><i class="fa fa-check"></i></span>Tất Cả</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check02" name="checkbox" />
+                                                <label for="check02"><span><i class="fa fa-check"></i></span>Theo Giá Tăng</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check03" name="checkbox" />
+                                                <label for="check03"><span><i class="fa fa-check"></i></span>Theo Giá Giảm</label>
+                                            </li>
+
+                                        </ul>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel-default -->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#panel-2" data-toggle="collapse">Ngày <span><i class="fa fa-angle-down"></i></span></a>
+                                </div><!-- end panel-heading -->
+
+                                <div id="panel-2" class="panel-collapse collapse">
+                                    <div class="panel-body text-left">
+                                        <ul class="list-unstyled">
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check11" name="checkbox" />
+                                                <label for="check11"><span><i class="fa fa-check"></i></span>All</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check12" name="checkbox" />
+                                                <label for="check12"><span><i class="fa fa-check"></i></span>2 Ngày 1 Đêm</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check13" name="checkbox" />
+                                                <label for="check13"><span><i class="fa fa-check"></i></span>3 Ngày 2 Đêm</label>
+                                            </li>
+
+                                        </ul>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel-default -->
+
+
+                        </div><!-- end panel-group -->
+
+                        <div class="price-slider">
+                            <p><input type="text" id="amount" readonly></p>
+                            <div id="slider-range"></div>
+                        </div><!-- end price-slider -->
+                    </div><!-- end side-bar-block -->
+
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="images/car-ad.jpg" class="img-responsive" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block support-block">
+                                <h3>Bạn Cần Trợ Giúp</h3>
+                                <p>Nếu có bất kì ý kiến nào, bạn vui lòng liên hệ số dưới đây để đươc trợ giúp.</p>
+                                <div class="support-contact">
+                                    <span><i class="fa fa-phone"></i></span>
+                                    <p>0999 999 999</p>
+                                </div><!-- end support-contact -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="grid-block main-block t-grid-block">
+                                    <div class="main-img t-grid-img">
+                                        <a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})">
+                                            <img src="https://cdn1.ivivu.com/iVivu/2020/06/29/18/2-3-800x450.jpg" class="img-responsive" alt="hotel-img" />
+                                        </a>
+                                        <div class="main-mask">
+                                            <ul class="list-unstyled list-inline offer-price-1">
+                                                <li class="price" style="font-size: 19px;">
+                                                    @string.Format("{0:#,0}", item.Gia) đ<span class="divider">|</span>
+                                                    @if (item.LoaiTour.SoNgay != 0 && item.LoaiTour.SoDem != 0)
+                                                    {
+                                                        <span class="pkg">
+                                                            @item.LoaiTour.SoNgay Ngày @item.LoaiTour.SoDem Đêm
+                                                        </span>
+                                                    }
+                                                    else if (item.LoaiTour.SoNgay == 0 && item.LoaiTour.SoDem != 0)
+                                                    {
+                                                        <span class="pkg">
+                                                            @item.LoaiTour.SoDem Đêm
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="pkg">
+                                                            @item.LoaiTour.SoNgay Ngày
+                                                        </span>
+                                                    }
+                                                </li>
+                                            </ul>
+                                        </div><!-- end main-mask -->
+                                    </div><!-- end t-grid-img -->
+
+                                    <div class="block-info t-grid-info">
+                                        <div class="rating">
+                                            <span><i class="fa fa-star orange"></i></span>
+                                            <span><i class="fa fa-star orange"></i></span>
+                                            <span><i class="fa fa-star orange"></i></span>
+                                            <span><i class="fa fa-star orange"></i></span>
+                                            <span><i class="fa fa-star lightgrey"></i></span>
+                                        </div><!-- end rating -->
+
+                                        <h3 class="block-title"><a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})">Free and Easy Pandanus resort 4* Mũi Né Phan Thiết Resort 2 ngày 1 đêm</a></h3>
+                                        <p class="block-minor">Mã Tours: @item.MaTour</p>
+                                        <p>Hành trình: @item.HanhTrinh </p>
+                                        <div class="grid-btn">
+                                            <a href="@Url.Action("ToursDetail", "Tours", new { id = item.MaTour})" class="btn btn-orange btn-block btn-lg">Xem Chi Tiết</a>
+                                        </div><!-- end grid-btn -->
+                                    </div><!-- end t-grid-info -->
+                                </div><!-- end t-grid-block -->
+                            </div><!-- end columns -->
+                        }
+
+
+
+                    </div><!-- end row -->
+                    
+                    <div class="pages">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                        @*<ol class="pagination">
+                            <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></li>
+                        </ol>*@
+                    </div><!-- end pages -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end tour-grid -->
+</section><!-- end innerpage-wrapper -->

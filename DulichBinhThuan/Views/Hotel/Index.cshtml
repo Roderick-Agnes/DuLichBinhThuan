@@ -1,0 +1,235 @@
+﻿@using DulichBinhThuan.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Hotel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@helper Truncate(String str, int len)
+{
+    if (str.Length > len)
+    {
+        @str.Substring(0, len) <text> ... </text>
+
+    }
+    else
+    {
+        @str
+    }
+}
+
+<!--=================== PAGE-COVER =================-->
+<section class="page-cover" id="cover-hotel-grid-list">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="page-title">Đặt Hotel</h1>
+                <ul class="breadcrumb">
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li class="active">Hotel</li>
+                </ul>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end page-cover -->
+<!--===== INNERPAGE-WRAPPER ====-->
+<section class="innerpage-wrapper">
+    <div id="hotel-listing" class="innerpage-section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-3 side-bar left-side-bar">
+
+                    <div class="side-bar-block filter-block">
+                        <h3>Lọc Tours</h3>
+                        <p>Hãy tìm kiếm Hotels Cho Bạn</p>
+
+                        <div class="panels-group">
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#panel-1" data-toggle="collapse">Sắp Xếp <span><i class="fa fa-angle-down"></i></span></a>
+                                </div><!-- end panel-heading -->
+
+                                <div id="panel-1" class="panel-collapse collapse">
+                                    <div class="panel-body text-left">
+                                        <ul class="list-unstyled">
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check01" name="checkbox" />
+                                                <label for="check01"><span><i class="fa fa-check"></i></span>Tất Cả</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check02" name="checkbox" />
+                                                <label for="check02"><span><i class="fa fa-check"></i></span>Theo Giá Tăng</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check03" name="checkbox" />
+                                                <label for="check03"><span><i class="fa fa-check"></i></span>Theo Giá Giảm</label>
+                                            </li>
+
+                                        </ul>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel-default -->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#panel-2" data-toggle="collapse">Theo Sao<span><i class="fa fa-angle-down"></i></span></a>
+                                </div><!-- end panel-heading -->
+
+                                <div id="panel-2" class="panel-collapse collapse">
+                                    <div class="panel-body text-left">
+                                        <ul class="list-unstyled">
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check11" name="checkbox" />
+                                                <label for="check11"><span><i class="fa fa-check"></i></span>1</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check12" name="checkbox" />
+                                                <label for="check12"><span><i class="fa fa-check"></i></span>2</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check13" name="checkbox" />
+                                                <label for="check13"><span><i class="fa fa-check"></i></span>3</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check14" name="checkbox" />
+                                                <label for="check14"><span><i class="fa fa-check"></i></span>4</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check15" name="checkbox" />
+                                                <label for="check15"><span><i class="fa fa-check"></i></span>5</label>
+                                            </li>
+
+                                        </ul>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel-default -->
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="#panel-3" data-toggle="collapse">Theo Chỗ<span><i class="fa fa-angle-down"></i></span></a>
+                                </div><!-- end panel-heading -->
+
+                                <div id="panel-3" class="panel-collapse collapse">
+                                    <div class="panel-body text-left">
+                                        <ul class="list-unstyled">
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check16" name="checkbox" />
+                                                <label for="check16"><span><i class="fa fa-check"></i></span>Mũi Né</label>
+                                            </li>
+                                            <li class="custom-check">
+                                                <input type="checkbox" id="check17" name="checkbox" />
+                                                <label for="check17"><span><i class="fa fa-check"></i></span>Phan Thiết</label>
+                                            </li>
+
+
+
+                                        </ul>
+                                    </div><!-- end panel-body -->
+                                </div><!-- end panel-collapse -->
+                            </div><!-- end panel-default -->
+
+
+                        </div><!-- end panel-group -->
+
+                        <div class="price-slider">
+                            <p><input type="text" id="amount" readonly></p>
+                            <div id="slider-range"></div>
+                        </div><!-- end price-slider -->
+                    </div><!-- end side-bar-block -->
+
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block main-block ad-block">
+                                <div class="main-img ad-img">
+                                    <a href="#">
+                                        <img src="images/car-ad.jpg" class="img-responsive" alt="car-ad" />
+                                        <div class="ad-mask">
+                                            <div class="ad-text">
+                                                <span>Luxury</span>
+                                                <h2>Car</h2>
+                                                <span>Offer</span>
+                                            </div><!-- end ad-text -->
+                                        </div><!-- end columns -->
+                                    </a>
+                                </div><!-- end ad-img -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                        <div class="col-xs-12 col-sm-6 col-md-12">
+                            <div class="side-bar-block support-block">
+                                <h3>Bạn Cần Trợ Giúp</h3>
+                                <p>Nếu có bất kì ý kiến nào, bạn vui lòng liên hệ số dưới đây để đươc trợ giúp.</p>
+                                <div class="support-contact">
+                                    <span><i class="fa fa-phone"></i></span>
+                                    <p>0999 999 999</p>
+                                </div><!-- end support-contact -->
+                            </div><!-- end side-bar-block -->
+                        </div><!-- end columns -->
+
+                    </div><!-- end row -->
+                </div><!-- end columns -->
+
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 content-side">
+                    @foreach (var item in Model)
+                    {
+                        <div class="list-block main-block h-list-block">
+                            <div class="list-content">
+                                <div class="main-img list-img h-list-img">
+                                    <a href="">
+                                        <img src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/67767835-91ebd5f50cfd65df93f855bfd4317225.jpeg?_src=imagekit&tr=c-at_max,h-360,q-40,w-640g" class="img-responsive" alt="hotel-img" />
+                                    </a>
+                                    <div class="main-mask">
+                                        <ul class="list-unstyled list-inline offer-price-1">
+                                            <li class="price">
+                                                @string.Format("{0:#,0}", item.Gia) VNĐ<span class="divider">|</span>
+                                                @if (item.SoNgay != 0 && item.SoDem != 0)
+                                                {
+                                                    <span class="pkg">
+                                                        @item.SoNgay Ngày @item.SoDem Đêm
+                                                    </span>
+                                                }
+                                                else if (item.SoNgay == 0 && item.SoDem != 0)
+                                                {
+                                                    <span class="pkg">
+                                                        @item.SoDem Đêm
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="pkg">
+                                                        @item.SoNgay Ngày
+                                                    </span>
+                                                }
+                                            </li>
+                                            <li class="rating">
+                                                <span><i class="fa fa-star orange"></i></span>
+                                                <span><i class="fa fa-star orange"></i></span>
+
+                                            </li>
+                                        </ul>
+                                    </div><!-- end main-mask -->
+                                </div><!-- end h-list-img --><i class="fa-solid fa-location-dot"></i>
+
+                                <div class="list-info h-list-info">
+                                    <h3 class="block-title"><a href="hotel-detail-left-sidebar.html">@item.TenHotel</a></h3>
+                                    <p class="block-minor"><i class="fa fa-location-arrow"><span>@item.DiaChi</span></i></p>
+                                    <p>@Truncate(@item.ThongTin, 200)</p>
+                                    <a href="@Url.Action("HotelDetail", "Hotel", new { id = item.MaHotel})" class="btn btn-orange btn-lg">Xem Chi Tiết</a>
+                                </div><!-- end h-list-info -->
+                            </div><!-- end list-content -->
+                        </div><!-- end h-list-block -->
+                    }
+
+                    <div class="pages">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                    </div><!-- end pages -->
+                </div><!-- end columns -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end hotel-listing -->
+</section><!-- end innerpage-wrapper -->

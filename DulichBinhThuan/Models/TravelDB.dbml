@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TravelDB" Class="TravelDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-NH3L7KBS\SQLEXPRESS;Initial Catalog=TravelDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TravelDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AdminAcount" Member="AdminAcounts">
+    <Type Name="AdminAcount">
+      <Column Name="MaAdmin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TaiKhoan" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="State_Acount" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BinhLuanBlog" Member="BinhLuanBlogs">
+    <Type Name="BinhLuanBlog">
+      <Column Name="MaBinhLuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaBlog" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BinhLuanBlog_PhanHoiBinhLuanBlog" Member="PhanHoiBinhLuanBlogs" ThisKey="MaBinhLuan" OtherKey="MaBinhLuan" Type="PhanHoiBinhLuanBlog" />
+      <Association Name="Blog_BinhLuanBlog" Member="Blog" ThisKey="MaBlog" OtherKey="MaBlog" Type="Blog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BinhLuanHotel" Member="BinhLuanHotels">
+    <Type Name="BinhLuanHotel">
+      <Column Name="MaBinhLuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SoSao" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaHotel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Hotel_BinhLuanHotel" Member="Hotel" ThisKey="MaHotel" OtherKey="MaHotel" Type="Hotel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Blog" Member="Blogs">
+    <Type Name="Blog">
+      <Column Name="MaBlog" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="NguoiDang" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MaTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Blog_BinhLuanBlog" Member="BinhLuanBlogs" ThisKey="MaBlog" OtherKey="MaBlog" Type="BinhLuanBlog" />
+      <Association Name="Blog_PhanHoiBinhLuanBlog" Member="PhanHoiBinhLuanBlogs" ThisKey="MaBlog" OtherKey="MaBlog" Type="PhanHoiBinhLuanBlog" />
+      <Association Name="Tinh_Blog" Member="Tinh" ThisKey="MaTinh" OtherKey="MaTinh" Type="Tinh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BinhLuanTour" Member="BinhLuanTours">
+    <Type Name="BinhLuanTour">
+      <Column Name="MaBinhLuan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SoSao" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tour_BinhLuanTour" Member="Tour" ThisKey="MaTour" OtherKey="MaTour" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contact" Member="Contacts">
+    <Type Name="Contact">
+      <Column Name="MaContact" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DonDatHotel" Member="DonDatHotels">
+    <Type Name="DonDatHotel">
+      <Column Name="MaDon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="NgayNhanPhong" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayTraPhong" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SoPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoGiuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TinhTrangThanhToan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaHotel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaRoom" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Hotel_DonDatHotel" Member="Hotel" ThisKey="MaHotel" OtherKey="MaHotel" Type="Hotel" IsForeignKey="true" />
+      <Association Name="Room_DonDatHotel" Member="Room" ThisKey="MaRoom" OtherKey="MaRoom" Type="Room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DonDatTour" Member="DonDatTours">
+    <Type Name="DonDatTour">
+      <Column Name="MaDon" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTour" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="NgayKhoiHanh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TinhTrangThanhToan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaThanhPho" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhAnhHotel" Member="HinhAnhHotels">
+    <Type Name="HinhAnhHotel">
+      <Column Name="MaHinhAnh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UrlLink" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaHotel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Hotel_HinhAnhHotel" Member="Hotel" ThisKey="MaHotel" OtherKey="MaHotel" Type="Hotel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HinhAnhTour" Member="HinhAnhTours">
+    <Type Name="HinhAnhTour">
+      <Column Name="MaHinhAnh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UrlLink" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tour_HinhAnhTour" Member="Tour" ThisKey="MaTour" OtherKey="MaTour" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Hotel" Member="Hotels">
+    <Type Name="Hotel">
+      <Column Name="MaHotel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenHotel" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="ThongTin" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TienNghi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DiemNoiBat" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SoNgay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoSao" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SoPhong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Hotel_BinhLuanHotel" Member="BinhLuanHotels" ThisKey="MaHotel" OtherKey="MaHotel" Type="BinhLuanHotel" />
+      <Association Name="Hotel_DonDatHotel" Member="DonDatHotels" ThisKey="MaHotel" OtherKey="MaHotel" Type="DonDatHotel" />
+      <Association Name="Hotel_HinhAnhHotel" Member="HinhAnhHotels" ThisKey="MaHotel" OtherKey="MaHotel" Type="HinhAnhHotel" />
+      <Association Name="Hotel_Room" Member="Rooms" ThisKey="MaHotel" OtherKey="MaHotel" Type="Room" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KhachHang" Member="KhachHangs">
+    <Type Name="KhachHang">
+      <Column Name="MaKhachHang" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TaiKhoan" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayDangKy" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LichTrinh" Member="LichTrinhs">
+    <Type Name="LichTrinh">
+      <Column Name="MaLichTrinh" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDungBuoiSang" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDungBuoiTrua" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDungBuoiToi" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDungThem" Type="System.String" DbType="NVarChar(3000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tour_LichTrinh" Member="Tour" ThisKey="MaTour" OtherKey="MaTour" Type="Tour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiTour" Member="LoaiTours">
+    <Type Name="LoaiTour">
+      <Column Name="MaLoaiTour" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SoNgay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoDem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="LoaiTour_Tour" Member="Tours" ThisKey="MaLoaiTour" OtherKey="MaLoaiTour" Type="Tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanHoiBinhLuanBlog" Member="PhanHoiBinhLuanBlogs">
+    <Type Name="PhanHoiBinhLuanBlog">
+      <Column Name="MaReply" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaBlog" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaBinhLuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BinhLuanBlog_PhanHoiBinhLuanBlog" Member="BinhLuanBlog" ThisKey="MaBinhLuan" OtherKey="MaBinhLuan" Type="BinhLuanBlog" IsForeignKey="true" />
+      <Association Name="Blog_PhanHoiBinhLuanBlog" Member="Blog" ThisKey="MaBlog" OtherKey="MaBlog" Type="Blog" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhuongTien" Member="PhuongTiens">
+    <Type Name="PhuongTien">
+      <Column Name="MaPhuongTien" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenPhuongTien" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PhuongTien_Tour" Member="Tours" ThisKey="MaPhuongTien" OtherKey="MaPhuongTien" Type="Tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Room" Member="Rooms">
+    <Type Name="Room">
+      <Column Name="MaRoom" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TinhTrangPhong" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SoGiuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaHotel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Room_DonDatHotel" Member="DonDatHotels" ThisKey="MaRoom" OtherKey="MaRoom" Type="DonDatHotel" />
+      <Association Name="Hotel_Room" Member="Hotel" ThisKey="MaHotel" OtherKey="MaHotel" Type="Hotel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThanhPho" Member="ThanhPhos">
+    <Type Name="ThanhPho">
+      <Column Name="MaThanhPho" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenThanhPho" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ThanhPho_Tour" Member="Tours" ThisKey="MaThanhPho" OtherKey="MaThanhPho" Type="Tour" />
+      <Association Name="Tinh_ThanhPho" Member="Tinh" ThisKey="MaTinh" OtherKey="MaTinh" Type="Tinh" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tinh" Member="Tinhs">
+    <Type Name="Tinh">
+      <Column Name="MaTinh" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenTinh" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tinh_Blog" Member="Blogs" ThisKey="MaTinh" OtherKey="MaTinh" Type="Blog" />
+      <Association Name="Tinh_ThanhPho" Member="ThanhPhos" ThisKey="MaTinh" OtherKey="MaTinh" Type="ThanhPho" />
+      <Association Name="Tinh_Tour" Member="Tours" ThisKey="MaTinh" OtherKey="MaTinh" Type="Tour" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tour" Member="Tours">
+    <Type Name="Tour">
+      <Column Name="MaTour" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTour" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="MoTa" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Gia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoSlot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoSao" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HanhTrinh" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayKhoiHanh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="XuatPhat" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Is_Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MaTinh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaThanhPho" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaPhuongTien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaLoaiTour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tour_BinhLuanTour" Member="BinhLuanTours" ThisKey="MaTour" OtherKey="MaTour" Type="BinhLuanTour" />
+      <Association Name="Tour_HinhAnhTour" Member="HinhAnhTours" ThisKey="MaTour" OtherKey="MaTour" Type="HinhAnhTour" />
+      <Association Name="Tour_LichTrinh" Member="LichTrinhs" ThisKey="MaTour" OtherKey="MaTour" Type="LichTrinh" />
+      <Association Name="LoaiTour_Tour" Member="LoaiTour" ThisKey="MaLoaiTour" OtherKey="MaLoaiTour" Type="LoaiTour" IsForeignKey="true" />
+      <Association Name="PhuongTien_Tour" Member="PhuongTien" ThisKey="MaPhuongTien" OtherKey="MaPhuongTien" Type="PhuongTien" IsForeignKey="true" />
+      <Association Name="ThanhPho_Tour" Member="ThanhPho" ThisKey="MaThanhPho" OtherKey="MaThanhPho" Type="ThanhPho" IsForeignKey="true" />
+      <Association Name="Tinh_Tour" Member="Tinh" ThisKey="MaTinh" OtherKey="MaTinh" Type="Tinh" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

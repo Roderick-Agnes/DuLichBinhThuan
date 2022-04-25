@@ -1,0 +1,46 @@
+﻿@using DulichBinhThuan.Models;
+@{
+    Layout = null;
+}
+<div class="list-block main-block t-list-block">
+    <div class="list-content">
+        <div class="main-img list-img t-list-img">
+            <a href="@Url.Action("ToursDetail", "Tours", new { id = Convert.ToInt32(Model.MaTour)})">
+                <img src="https://dulich9.com/wp-content/uploads/2019/01/Kinh-nghiem-du-lich-dao-Phu-Quy-08.jpg" class="img-responsive" alt="tour-img" />
+            </a>
+            <div class="main-mask">
+                <ul class="list-unstyled list-inline offer-price-1">
+                    <li class="price">
+                        @string.Format("{0:#,0}", @Model.Gia) đ
+                        <span class="divider">|</span>
+                        @if (Model.LoaiTour.SoNgay != 0 && Model.LoaiTour.SoDem != 0)
+                        {
+                            <span class="pkg">
+                                @Model.LoaiTour.SoNgay Ngày @Model.LoaiTour.SoDem Đêm
+                            </span>
+                        }
+                        else if (Model.LoaiTour.SoNgay == 0 && Model.LoaiTour.SoDem != 0)
+                        {
+                            <span class="pkg">
+                                @Model.LoaiTour.SoDem Đêm
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="pkg">
+                                @Model.LoaiTour.SoNgay Ngày
+                            </span>
+                        }
+                    </li>
+                </ul>
+            </div><!-- end main-mask -->
+        </div><!-- end t-list-img -->
+
+        <div class="list-info t-list-info">
+            <h3 class="block-title"><a href="@Url.Action("ToursDetail", "Tours", new { id = Convert.ToInt32(Model.MaTour)})">@Model.TenTour</a></h3>
+            <p class="block-minor">Mã Tour: @Model.MaTour</p>
+            <p>Hành trình: @Model.HanhTrinh</p>
+            <a href="@Url.Action("ToursDetail", "Tours", new { id = Convert.ToInt32(Model.MaTour)})" class="btn btn-orange btn-lg">Xem Chi Tiết</a>
+        </div><!-- end t-list-info -->
+    </div><!-- end list-content -->
+</div><!-- end t-list-block -->
